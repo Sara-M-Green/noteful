@@ -1,0 +1,9 @@
+.folderItems {
+    border: 1px solid black;
+    margin: 20px;
+    width: 160px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
