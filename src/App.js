@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar/Sidebar';
 import NotesList from './NotesList/NotesList';
 import NotePage from './NotePage/NotePage';
+import MainFolders from './MainFolders/MainFolders';
 import './App.css';
 import DATA from './Dummy-data';
 
@@ -46,6 +47,14 @@ class App extends Component {
               notePageData={this.state.notes}
             />}
           />
+          <Route
+            path='/folder/:folderID'
+            render={(props) =>
+            <MainFolders
+              {...props}
+              FolderNotes={this.state.notes}
+            />}
+          />
         </main>
         <section className="sidebar">
           <Route
@@ -55,6 +64,7 @@ class App extends Component {
               folderData={this.state.folders}
             />}
           />
+          
         </section>
       </div>
     );

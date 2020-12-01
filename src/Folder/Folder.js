@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Folder.css';
 
 class Folder extends Component {
@@ -7,9 +7,9 @@ class Folder extends Component {
         const folderTitle = this.props.folderData.map((folder) => {
             return (
                 <li className="folderItems" key={folder.id}>
-                    <Link to={`/folder/${folder.id}`}>
+                    <NavLink to={`/folder/${folder.id}`}>
                     {folder.name}
-                    </Link> 
+                    </NavLink> 
                 </li>
             )
         })

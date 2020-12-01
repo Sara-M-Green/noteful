@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import './Note.css';
 
 class Note extends Component {
@@ -10,7 +11,7 @@ class Note extends Component {
                     <Link to={`/note/${note.id}`}>
                         <p>{note.name}</p>
                     </Link>
-                    <p>Modified: {note.modified}</p>
+                    <p>Modified: {moment(note.modified).format("MMM Do YY")}</p>
                     <button>delete</button>
                 </li>
             ) 
