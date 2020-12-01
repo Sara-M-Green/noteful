@@ -40,8 +40,9 @@ class App extends Component {
             />
           <Route
             path='/note/:noteID'
-            render={() =>
+            render={(props) =>
             <NotePage
+              {...props}
               notePageData={this.state.notes}
             />}
           />
