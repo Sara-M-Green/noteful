@@ -5,8 +5,8 @@ import Sidebar from './Sidebar/Sidebar';
 import NotesList from './NotesList/NotesList';
 import NotePage from './NotePage/NotePage';
 import MainFolders from './MainFolders/MainFolders';
+import NotefulContext from './NotefulContext';
 import './App.css';
-import DATA from './Dummy-data';
 
 class App extends Component {
   constructor(props){
@@ -18,9 +18,36 @@ class App extends Component {
   }
   
   componentDidMount() {
-    this.setState(DATA)
-  }
+    fetch('http://localhost:9090/folders', {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res.status)
+      }
+      return res.json()
+    })
+    .then(folders => this.setState({folders: folders}))
+    .catch(error => this.sestState( {error}));
 
+    fetch('http://localhost:9090/notes', {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res.status)
+      }
+      return res.json()
+    })
+    .then(notes => this.setState({notes: notes}))
+    .catch(error => this.sestState( {error}));
+  }
 
   render() {
     return (
