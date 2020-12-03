@@ -13,17 +13,17 @@ class Note extends React.Component {
     static contextType = NotefulContext
     
 
-    handleDeleteNote = e => {
+    handleDeleteNote = (e, noteId) => {
         e.preventDefault()
-        const noteId = this.props.id
+        
         console.log(noteId)
 
-        fetch(`http://localhost:9090/note/${noteId}`, {
+        fetch(`http://localhost:9090/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
             'content-type': 'application/json'
             },
-        })
+        }) 
         .then(res => {
             if (!res.ok) {
                 return res.json().then(e => Promise.reject(e))
@@ -48,7 +48,7 @@ class Note extends React.Component {
                         <p>{note.name}</p>
                     </Link>
                     <p>Modified: {moment(note.modified).format("MMM Do YY")}</p>
-                    <button onClick={this.handleDeleteNote}>delete</button>
+                    <button onClick={(e) => this.handleDeleteNote(e, note.id)}>delete</button>
                 </li>
             ) 
         })
