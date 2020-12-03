@@ -5,19 +5,24 @@ import moment from 'moment';
 import './Note.css';
 
 
-class Note extends Component {
+class Note extends React.Component {
+    static defaultProps = {
+        handleDeleteNote: () => {},
+    }
+    
     static contextType = NotefulContext
     
 
     handleDeleteNote = e => {
         e.preventDefault()
         const noteId = this.props.id
+        console.log(noteId)
 
         fetch(`http://localhost:9090/note/${noteId}`, {
             method: 'DELETE',
             headers: {
             'content-type': 'application/json'
-            }
+            },
         })
         .then(res => {
             if (!res.ok) {
@@ -27,6 +32,7 @@ class Note extends Component {
         })
         .then(() => {
             this.context.deleteNote(noteId)
+            this.props.handleDeleteNote(noteId)
             
         })
         .catch(error => {
