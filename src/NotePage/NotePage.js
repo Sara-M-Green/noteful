@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import NotefulContext from '../NotefulContext';
 
  class NotePage extends Component {
-     render(){
-         const noteItem = this.props.notePageData.find(p =>
+    static contextType = NotefulContext
+
+    render(){
+        const noteItem = this.context.notes.find(p =>
             p.id === this.props.match.params.noteID
           )
 

@@ -16,6 +16,7 @@ class App extends Component {
       notes: [],
     }
   }
+
   
   componentDidMount() {
     fetch('http://localhost:9090/folders', {
@@ -49,51 +50,54 @@ class App extends Component {
     .catch(error => this.sestState( {error}));
   }
 
+  handleDeleteNote = noteId => {
+    this.setState({
+      notes: this.state.notes.filter(note => note.id !== noteId)
+    })
+  }
+
   render() {
+    const contextValue = {
+      notes: this.state.notes,
+      folders: this.state.folders,
+      deleteNote: this.handleDeleteNote
+    }
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>
-            <Link to='/'>Noteful</Link>
-          </h1>
-        </header>
-        <main>
-          <Route
-              exact
+      <NotefulContext.Provider value={contextValue}>
+        <div className="App">
+          <header className="App-header">
+            <h1>
+              <Link to='/'>Noteful</Link>
+            </h1>
+          </header>
+          <main>
+            <Route
+                exact
+                path='/'
+                component={NotesList}
+              />
+            <Route
+              path='/note/:noteID'
+              component={NotePage}
+            />
+            <Route
+              path='/folder/:folderID'
+              component={MainFolders}
+            />
+          </main>
+          <section className="sidebar">
+            <Route
               path='/'
               render={() =>
-              <NotesList
-                noteData={this.state.notes}
+              <Sidebar
+                folderData={this.state.folders}
               />}
             />
-          <Route
-            path='/note/:noteID'
-            render={(props) =>
-            <NotePage
-              {...props}
-              notePageData={this.state.notes}
-            />}
-          />
-          <Route
-            path='/folder/:folderID'
-            render={(props) =>
-            <MainFolders
-              {...props}
-              FolderNotes={this.state.notes}
-            />}
-          />
-        </main>
-        <section className="sidebar">
-          <Route
-            path='/'
-            render={() =>
-            <Sidebar
-              folderData={this.state.folders}
-            />}
-          />
-          
-        </section>
-      </div>
+            
+          </section>
+        </div>
+      </NotefulContext.Provider>         
     );
   }
 }

@@ -5,7 +5,7 @@ class NotesList extends Component {
     render(){
         return (
             <ul>
-                <Note noteData={this.props.noteData} />
+                <Note />
             </ul>
         )
     }
