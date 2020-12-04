@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       folders: [],
       notes: [],
-      selectedFolder: []
+      selectedNotes: []
     }
   }
 
@@ -61,7 +61,7 @@ class App extends Component {
     const contextValue = {
       notes: this.state.notes,
       folders: this.state.folders,
-      selectedFolder: this.state.selectedFolder,
+      selectedNotes: this.state.notes,
       deleteNote: this.handleDeleteNote
     }
 

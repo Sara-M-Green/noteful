@@ -11,7 +11,7 @@ class MainFolders extends Component {
 
         console.log(folderNotes)
 
-        this.context.selectedFolder = folderNotes
+        this.context.selectedNotes = folderNotes
 
         return(
             <div>

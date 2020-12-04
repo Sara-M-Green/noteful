@@ -6,7 +6,7 @@ import NotefulContext from '../NotefulContext';
     static contextType = NotefulContext
 
     render(){
-        const noteItem = this.context.notes.find(p =>
+        const noteItem = this.context.selectedNotes.find(p =>
             p.id === this.props.match.params.noteID
           )
 

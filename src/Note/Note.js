@@ -39,7 +39,7 @@ class Note extends React.Component {
     }
 
     render(){
-        const noteItem = this.context.notes.map((note) => {
+        const noteItem = this.context.selectedNotes.map((note) => {
             return (
                 <li className="note-items" key={note.id} >
                     <Link to={`/note/${note.id}`}>
