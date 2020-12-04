@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import NotefulContext from '../NotefulContext';
 import './Folder.css';
 
 class Folder extends Component {
+    static contextType = NotefulContext
+
     render(){
-        const folderTitle = this.props.folderData.map((folder) => {
+        const folderTitle = this.context.folders.map((folder) => {
             return (
                 <li className="folderItems" key={folder.id}>
                     <NavLink to={`/folder/${folder.id}`}>

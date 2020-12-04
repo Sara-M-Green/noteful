@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       folders: [],
       notes: [],
+      selectedFolder: []
     }
   }
 
@@ -60,6 +61,7 @@ class App extends Component {
     const contextValue = {
       notes: this.state.notes,
       folders: this.state.folders,
+      selectedFolder: this.state.selectedFolder,
       deleteNote: this.handleDeleteNote
     }
 
@@ -89,10 +91,7 @@ class App extends Component {
           <section className="sidebar">
             <Route
               path='/'
-              render={() =>
-              <Sidebar
-                folderData={this.state.folders}
-              />}
+              component={Sidebar}
             />
             
           </section>

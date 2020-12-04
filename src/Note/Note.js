@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import NotefulContext from '../NotefulContext';
 import moment from 'moment';
 import './Note.css';
@@ -31,9 +31,7 @@ class Note extends React.Component {
             return res.json()
         })
         .then(() => {
-            this.context.deleteNote(noteId)
-            this.props.handleDeleteNote(noteId)
-            
+            this.context.deleteNote(noteId)            
         })
         .catch(error => {
             console.error({error})
@@ -61,4 +59,4 @@ class Note extends React.Component {
     }
 }
 
-export default Note;
+export default withRouter(Note);

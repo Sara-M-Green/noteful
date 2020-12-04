@@ -11,11 +11,11 @@ class MainFolders extends Component {
 
         console.log(folderNotes)
 
-        this.context.notes = folderNotes
+        this.context.selectedFolder = folderNotes
 
         return(
             <div>
-                <NotesList noteData={folderNotes} />
+                <NotesList />
             </div>
            
         )

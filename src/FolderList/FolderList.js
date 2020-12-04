@@ -6,7 +6,7 @@ class FolderList extends Component {
     render(){
         return (
             <ul className="folderList">
-                <Folder folderData={this.props.folderData} />
+                <Folder />
             </ul>
             
         )

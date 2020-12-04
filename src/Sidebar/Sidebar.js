@@ -8,7 +8,7 @@ class Sidebar extends Component {
         return(
             <div className="sidebar">
                 <ul>
-                    <FolderList folderData={this.props.folderData} />
+                    <FolderList />
                 </ul>
             </div>
         )
