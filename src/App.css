@@ -8,7 +8,7 @@ li {
 
 .App {
   text-align: center;
-  margin-left: 300px;
+  margin-left: 25%;
 }
 
 .App-header {
@@ -17,6 +17,14 @@ li {
   align-items: center;
   font-size: calc(10px + 2vmin);
   border-bottom: 1px solid black;
+}
+
+.Link {
+  text-decoration: none;
+}
+
+.Link:hover {
+  text-decoration: underline;
 }
 
 

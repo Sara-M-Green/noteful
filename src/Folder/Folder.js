@@ -10,7 +10,7 @@ class Folder extends Component {
         const folderTitle = this.context.folders.map((folder) => {
             return (
                 <li className="folderItems" key={folder.id}>
-                    <NavLink to={`/folder/${folder.id}`}>
+                    <NavLink className="Link" to={`/folder/${folder.id}`}>
                     {folder.name}
                     </NavLink> 
                 </li>

@@ -78,6 +78,12 @@ class App extends Component {
     })
   }
 
+  showAllNotes = () => {
+    this.setState({
+      selectedNotes: this.state.notes
+    })
+  }
+
   render() {
     const contextValue = {
       notes: this.state.notes,
@@ -95,6 +101,8 @@ class App extends Component {
             <h1>
               <Link 
                 to='/'
+                onClick={this.showAllNotes}
+                className="Link"
               >Noteful</Link>
             </h1>
           </header>

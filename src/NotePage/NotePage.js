@@ -19,7 +19,6 @@ import NotefulContext from '../NotefulContext';
                 <Link to='/'>
                     <button>Go Back</button>
                 </Link>
-                <button>Delete Note</button>
             </div>
         )
 

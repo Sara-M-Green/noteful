@@ -42,7 +42,7 @@ class Note extends React.Component {
         const noteItem = this.context.selectedNotes.map((note) => {
             return (
                 <li className="note-items" key={note.id} >
-                    <Link to={`/note/${note.id}`}>
+                    <Link className="Link" to={`/note/${note.id}`}>
                         <p>{note.name}</p>
                     </Link>
                     <p>Modified: {moment(note.modified).format("MMM Do YY")}</p>
