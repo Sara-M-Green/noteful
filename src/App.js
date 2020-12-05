@@ -8,6 +8,8 @@ import MainFolders from './MainFolders/MainFolders';
 import AddFolder from './AddFolder/AddFolder';
 import AddNote from './AddNote/AddNote';
 import NotefulContext from './NotefulContext';
+import NotesError from './ErrorHandling/NotesError';
+import SidebarError from './ErrorHandling/NotesError';
 import './App.css';
 
 class App extends Component {
@@ -20,7 +22,6 @@ class App extends Component {
     }
   }
 
-  
   componentDidMount() {
     fetch('http://localhost:9090/folders', {
       method: 'GET',
@@ -50,7 +51,7 @@ class App extends Component {
       return res.json()
     })
     .then(notes => this.setState({notes: notes}))
-    .catch(error => this.sestState( {error}));
+    .catch(error => this.setState( {error}));
   }
 
   handleDeleteNote = noteId => {
@@ -98,33 +99,46 @@ class App extends Component {
             </h1>
           </header>
           <main>
-            <Route
-                exact
-                path='/'
-                component={NotesList}
+            <NotesError>
+              <Route
+                  exact
+                  path='/'
+                  component={NotesList}
               />
-            <Route
-              path='/note/:noteID'
-              component={NotePage}
-            />
-            <Route
-              path='/folder/:folderID'
-              component={MainFolders}
-            />
-            <Route
-              path='/add-folder'
-              component={AddFolder}
-            />
-            <Route
-              path='/add-note'
-              component={AddNote}
-            />
+            </NotesError>
+            <NotesError>
+              <Route
+                path='/note/:noteID'
+                component={NotePage}
+              />
+            </NotesError>
+            <NotesError>
+              <Route
+                path='/folder/:folderID'
+                component={MainFolders}
+              />
+            </NotesError>
+            <NotesError>
+              <Route
+                path='/add-folder'
+                component={AddFolder}
+              />
+            </NotesError>
+            <NotesError>
+              <Route
+                path='/add-note'
+                component={AddNote}
+              />
+            </NotesError> 
           </main>
+    
           <section className="sidebar">
-            <Route
-              path='/'
-              component={Sidebar}
-            />
+            <SidebarError>
+              <Route
+                path='/'
+                component={Sidebar}
+              />
+            </SidebarError>   
           </section>
         </div>
       </NotefulContext.Provider>         
