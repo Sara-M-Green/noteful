@@ -5,13 +5,20 @@ import moment from 'moment';
 import './Note.css';
 
 
-class Note extends React.Component {
+class Note extends Component {
+    static contextType = NotefulContext
+
+    static defaultProps = {
+        history: {
+            push: () => { }
+        },
+    }
+
     static defaultProps = {
         handleDeleteNote: () => {},
     }
     
-    static contextType = NotefulContext
-    
+       
 
     handleDeleteNote = (e, noteId) => {
         e.preventDefault()

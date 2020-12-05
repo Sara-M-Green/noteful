@@ -9,8 +9,6 @@ class MainFolders extends Component {
         const folderNotes = this.context.notes.filter(note => 
             note.folderId === this.props.match.params.folderID)
 
-        console.log(folderNotes)
-
         this.context.selectedNotes = folderNotes
 
         return(
