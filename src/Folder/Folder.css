@@ -7,3 +7,7 @@
     justify-content: center;
     align-items: center;
 }
+
+.active {
+    border-bottom: 2px solid lightseagreen;
+}

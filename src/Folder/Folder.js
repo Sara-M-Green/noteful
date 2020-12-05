@@ -20,7 +20,6 @@ class Folder extends Component {
         return (
             <div>
                 {folderTitle}
-                <button>Add Folder</button>
             </div>
             
         )

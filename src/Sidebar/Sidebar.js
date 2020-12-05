@@ -7,9 +7,8 @@ class Sidebar extends Component {
     render(){
         return(
             <div className="sidebar">
-                <ul>
-                    <FolderList />
-                </ul>
+                <h2>Folders</h2>
+                <FolderList />
             </div>
         )
     }

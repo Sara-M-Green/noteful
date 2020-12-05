@@ -1,12 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Note from '../Note/Note';
 
 class NotesList extends Component {
+
     render(){
         return (
-            <ul>
-                <Note />
-            </ul>
+            <>
+                <h2>Notes</h2>
+                <Link to='/add-note'>
+                    <button>Add Note</button>
+                </Link>
+                <ul>
+                    <Note />
+                </ul>
+            </>
         )
     }
 }

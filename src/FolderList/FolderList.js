@@ -1,14 +1,19 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Folder from '../Folder/Folder';
 import './FolderList.css'
 
 class FolderList extends Component {
     render(){
         return (
-            <ul className="folderList">
-                <Folder />
-            </ul>
-            
+            <>
+                <ul className="folderList">
+                    <Folder />
+                </ul>
+                <Link to='/add-folder'>
+                    <button>Add Folder</button>
+                </Link>
+            </>
         )
     }
 }

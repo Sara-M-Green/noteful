@@ -5,6 +5,8 @@ import Sidebar from './Sidebar/Sidebar';
 import NotesList from './NotesList/NotesList';
 import NotePage from './NotePage/NotePage';
 import MainFolders from './MainFolders/MainFolders';
+import AddFolder from './AddFolder/AddFolder';
+import AddNote from './AddNote/AddNote';
 import NotefulContext from './NotefulContext';
 import './App.css';
 
@@ -57,11 +59,31 @@ class App extends Component {
     })
   }
 
+  handleAddFolder = folder => {
+    this.setState({
+      folders: [
+        ...this.state.folders,
+        folder
+      ]
+    })
+  }
+
+  handleAddNote = note => {
+    this.setState({
+      notes: [
+        ...this.state.notes,
+        note
+      ]
+    })
+  }
+
   render() {
     const contextValue = {
       notes: this.state.notes,
       folders: this.state.folders,
+      addFolder: this.handleAddFolder,
       selectedNotes: this.state.notes,
+      addNote: this.handleAddNote,
       deleteNote: this.handleDeleteNote
     }
 
@@ -70,7 +92,9 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <h1>
-              <Link to='/'>Noteful</Link>
+              <Link 
+                to='/'
+              >Noteful</Link>
             </h1>
           </header>
           <main>
@@ -87,13 +111,20 @@ class App extends Component {
               path='/folder/:folderID'
               component={MainFolders}
             />
+            <Route
+              path='/add-folder'
+              component={AddFolder}
+            />
+            <Route
+              path='/add-note'
+              component={AddNote}
+            />
           </main>
           <section className="sidebar">
             <Route
               path='/'
               component={Sidebar}
             />
-            
           </section>
         </div>
       </NotefulContext.Provider>         
