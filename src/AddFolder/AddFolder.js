@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import NotefulContext from '../NotefulContext';
+import ValidationError from '../ValidationError/ValidationError'
 
 class AddFolder extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            folder: {
+                value:'',
+                touched: false
+            },
+        }
+    }
+
     static defaultProps = {
         history: {
             push: () => { }
@@ -39,7 +50,20 @@ class AddFolder extends Component {
         })
     }
 
+    updateFolder(folder) {
+        this.setState({folder: {value: folder, touched: true}});
+    }
+
+    validateFolder() {
+        const folderInput = this.state.folder.value.trim();
+        if (folderInput.length === 0){
+            return "Folder name required"
+        }
+    }
+
     render() {
+        const folderError = this.validateFolder();
+
         return(
             <div className="newFolderForm">
                 <h2>New Folder</h2>
@@ -50,8 +74,16 @@ class AddFolder extends Component {
                     <label htmlFor="folderNameInput">
                         Folder Name: 
                     </label>
-                    <input type='text' id="folderNameInput" name="folderNameInput" />
-                    <input type='submit' value="Add Folder"></input>
+                    <input type='text' id="folderNameInput" name="folderNameInput"  onChange={e => this.updateFolder(e.target.value)} />
+                    {this.state.folder.touched && (
+                            <ValidationError message={folderError} />
+                    )}
+                    <input 
+                        type='submit' 
+                        value="Add Folder"
+                        disabled={
+                            this.validateFolder()
+                        } />
                 </form>
 
             </div>
