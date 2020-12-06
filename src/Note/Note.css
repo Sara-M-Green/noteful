@@ -1,6 +1,12 @@
 .note-items {
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 17px;
     width: 400px;
     height: 140px;
     margin: 15px auto;
+    background: white;
+}
+
+.noteTitle {
+    font-size: 20px;
 }

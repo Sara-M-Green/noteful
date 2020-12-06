@@ -36,7 +36,7 @@ class App extends Component {
       return res.json()
     })
     .then(folders => this.setState({folders: folders}))
-    .catch(error => this.sestState( {error}));
+    .catch(error => this.setState( {error}));
 
     fetch('http://localhost:9090/notes', {
       method: 'GET',
@@ -98,11 +98,12 @@ class App extends Component {
       <NotefulContext.Provider value={contextValue}>
         <div className="App">
           <header className="App-header">
-            <h1>
+            <h1 >
               <Link 
                 to='/'
                 onClick={this.showAllNotes}
                 className="Link"
+                id="appTitle"
               >Noteful</Link>
             </h1>
           </header>

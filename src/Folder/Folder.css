@@ -1,11 +1,13 @@
 .folderItems {
     border: 1px solid black;
+    border-radius: 17px;
     margin: 20px;
     padding: 20px;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: white;
 }
 
 .active {

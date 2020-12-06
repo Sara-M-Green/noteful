@@ -39,7 +39,6 @@ class AddNote extends Component {
             folderId: e.target['noteFolderSelect'].value,
             modified: new Date(),
           }
-        const { name, content, folderSelect } = this.state;
             
         fetch('http://localhost:9090/notes', {
             method: 'POST',

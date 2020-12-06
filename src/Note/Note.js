@@ -18,7 +18,6 @@ class Note extends Component {
         handleDeleteNote: () => {},
     }
     
-       
 
     handleDeleteNote = (e, noteId) => {
         e.preventDefault()
@@ -50,7 +49,7 @@ class Note extends Component {
             return (
                 <li className="note-items" key={note.id} >
                     <Link className="Link" to={`/note/${note.id}`}>
-                        <p>{note.name}</p>
+                        <p className="noteTitle">{note.name}</p>
                     </Link>
                     <p>Modified: {moment(note.modified).format("MMM Do YY")}</p>
                     <button onClick={(e) => this.handleDeleteNote(e, note.id)}>delete</button>
