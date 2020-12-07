@@ -113,7 +113,14 @@ class AddNote extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-section">
                         <label htmlFor="noteNameInput">Note Name: </label>
-                        <input type="text" id="noteNameInput" name="noteNameInput" onChange={e => this.updateName(e.target.value)} /> 
+                        <input 
+                            type="text" 
+                            id="noteNameInput" 
+                            name="noteNameInput" 
+                            onChange={e => this.updateName(e.target.value)}
+                            aria-label="noteNameInput"
+                            aria-required="true"
+                         /> 
                         {this.state.name.touched && (
                             <ValidationError message={nameError} />
                         )}
@@ -121,7 +128,13 @@ class AddNote extends Component {
                     </div>
                     <div className="form-section">
                         <label htmlFor="noteContentInput">Note Content: </label>
-                        <textarea id="noteContentInput" name="noteContentInput" onChange={e => this.updateContent(e.target.value)} />
+                        <textarea 
+                            id="noteContentInput" 
+                            name="noteContentInput" 
+                            onChange={e => this.updateContent(e.target.value)}
+                            aria-label="noteContentInput"
+                            aria-required="true"
+                        />
                         {this.state.content.touched && (
                             <ValidationError message={contentError} />
                         )}
@@ -129,7 +142,13 @@ class AddNote extends Component {
                     </div>
                     <div className="form-section">
                         <label htmlFor="noteFolderSelect">Folder: </label>
-                        <select id="noteFolderSelect" name="noteFolderSelect" onChange={e => this.updatefolderSelect(e.target.value)}>
+                        <select 
+                            id="noteFolderSelect" 
+                            name="noteFolderSelect" 
+                            onChange={e => this.updatefolderSelect(e.target.value)}
+                            aria-label="noteFolderSelect"
+                            aria-required="true"
+                        >
                             <option value={null}>...</option>
                             {folders.map(folder =>
                                 <option key={folder.id} value={folder.id}>

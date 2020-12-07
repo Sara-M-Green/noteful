@@ -9,11 +9,11 @@ class Folder extends Component {
     render(){
         const folderTitle = this.context.folders.map((folder) => {
             return (
-                <li className="folderItems" key={folder.id}>
-                    <NavLink className="Link" to={`/folder/${folder.id}`}>
-                    {folder.name}
-                    </NavLink> 
-                </li>
+                    <li className="folderItems" key={folder.id}>
+                        <NavLink className="Link" to={`/folder/${folder.id}`} key={folder.id}>
+                        {folder.name}
+                        </NavLink> 
+                    </li>
             )
         })
 

@@ -74,7 +74,14 @@ class AddFolder extends Component {
                     <label htmlFor="folderNameInput">
                         Folder Name: 
                     </label>
-                    <input type='text' id="folderNameInput" name="folderNameInput"  onChange={e => this.updateFolder(e.target.value)} />
+                    <input 
+                        type='text' 
+                        id="folderNameInput" 
+                        name="folderNameInput"  
+                        onChange={e => this.updateFolder(e.target.value)}
+                        aria-label="folderNameInput"
+                        aria-required="true"
+                    />
                     {this.state.folder.touched && (
                             <ValidationError message={folderError} />
                     )}
