@@ -60,6 +60,12 @@ class App extends Component {
     })
   }
 
+  handleDeleteFolder = folderId => {
+    this.setState({ 
+      folders: this.state.folders.filter(folder => folder.id !== folderId)
+    })
+  }
+
   handleAddFolder = folder => {
     this.setState({
       folders: [
@@ -91,7 +97,8 @@ class App extends Component {
       addFolder: this.handleAddFolder,
       selectedNotes: this.state.notes,
       addNote: this.handleAddNote,
-      deleteNote: this.handleDeleteNote
+      deleteNote: this.handleDeleteNote,
+      deleteFolder: this.handleDeleteFolder
     }
 
     return (

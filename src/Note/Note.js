@@ -30,7 +30,6 @@ class Note extends Component {
             },
         }) 
         .then(res => {
-            console.log(res)
             if (!res.ok) {
                 return res.json().then(e => Promise.reject(e))
             }
@@ -50,7 +49,7 @@ class Note extends Component {
                             <p className="noteTitle">{note.note_name}</p>
                         </Link>
                         <p>Modified: {moment(note.modified).format("MMM Do YY")}</p>
-                        <button onClick={(e) => this.handleDeleteNote(e, note.id)}>delete</button>
+                        <button onClick={(e) => this.handleDeleteNote(e, note.id)}>Delete</button>
                     </li>
 
             ) 
