@@ -8,7 +8,7 @@ class NotesList extends Component {
         return (
             <div>
                 <h2>Notes:</h2>
-                <Link to='/add-note'>
+                <Link to='/notes'>
                     <button>Add Note</button>
                 </Link>
                 <ul className="notesList">

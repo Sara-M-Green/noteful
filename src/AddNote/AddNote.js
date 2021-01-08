@@ -34,13 +34,13 @@ class AddNote extends Component {
     handleSubmit = e => {
         e.preventDefault()
         const newNote = {
-            name: e.target['noteNameInput'].value,
+            note_name: e.target['noteNameInput'].value,
             content: e.target['noteContentInput'].value,
-            folderId: e.target['noteFolderSelect'].value,
+            folder: e.target['noteFolderSelect'].value,
             modified: new Date(),
           }
             
-        fetch('http://localhost:9090/notes', {
+        fetch('http://localhost:8000/api/notes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -55,7 +55,7 @@ class AddNote extends Component {
         })
         .then(note => {
             this.context.addNote(note)
-            this.props.history.push(`/folder/${note.folderId}`)
+            this.props.history.push(`/folders/${note.folder}`)
         })
         .catch(error => {
             console.error({ error })
@@ -152,7 +152,7 @@ class AddNote extends Component {
                             <option value={null}>...</option>
                             {folders.map(folder =>
                                 <option key={folder.id} value={folder.id}>
-                                    {folder.name}
+                                    {folder.folder_name}
                                 </option>
                             )}
                         </select>

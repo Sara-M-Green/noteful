@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:9090/folders', {
+    fetch('http://localhost:8000/api/folders', {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
@@ -38,7 +38,7 @@ class App extends Component {
     .then(folders => this.setState({folders: folders}))
     .catch(error => this.setState( {error}));
 
-    fetch('http://localhost:9090/notes', {
+    fetch('http://localhost:8000/api', {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
@@ -117,25 +117,27 @@ class App extends Component {
             </NotesError>
             <NotesError>
               <Route
-                path='/note/:noteID'
+                path='/notes/:noteID'
                 component={NotePage}
               />
             </NotesError>
             <NotesError>
               <Route
-                path='/folder/:folderID'
+                path='/folders/:folderID'
                 component={MainFolders}
               />
             </NotesError>
             <NotesError>
               <Route
-                path='/add-folder'
+                exact
+                path='/folders'
                 component={AddFolder}
               />
             </NotesError>
             <NotesError>
               <Route
-                path='/add-note'
+                exact
+                path='/notes'
                 component={AddNote}
               />
             </NotesError> 
