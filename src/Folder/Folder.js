@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import NotefulContext from '../NotefulContext';
 import './Folder.css';
 
@@ -40,10 +40,9 @@ class Folder extends Component {
         const folderTitle = this.context.folders.map((folder) => {
             return (
                     <li className="folderItems" key={folder.id}>
-                        <NavLink className="Link " to={`/folders/${folder.id}`} key={folder.id}>
+                        <NavLink className="NavLink " to={`/folders/${folder.id}`} key={folder.id}>
                             <p>{folder.folder_name}</p>
-                        </NavLink>
-                        
+                        </NavLink>                     
 
                         <button className="delete_btn" onClick={(e) => this.handleDeleteFolder(e, folder.id)}>Delete Folder</button>
 

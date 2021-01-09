@@ -98,7 +98,7 @@ class App extends Component {
       selectedNotes: this.state.notes,
       addNote: this.handleAddNote,
       deleteNote: this.handleDeleteNote,
-      deleteFolder: this.handleDeleteFolder
+      deleteFolder: this.handleDeleteFolder,
     }
 
     return (
