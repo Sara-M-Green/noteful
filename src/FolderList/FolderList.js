@@ -10,7 +10,7 @@ class FolderList extends Component {
                 <ul className="folderList">
                     <Folder />
                 </ul>
-                <Link to='/add-folder'>
+                <Link to='/folders'>
                     <button>Add Folder</button>
                 </Link>
             </>

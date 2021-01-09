@@ -6,15 +6,13 @@ import NotefulContext from '../NotefulContext';
     static contextType = NotefulContext
 
     render(){
-        const noteItem = this.context.selectedNotes.find(p =>
-            p.id === this.props.match.params.noteID
-          )
-
-        console.log(this.props.match.params.noteID)
+        const noteItem = this.context.selectedNotes.find(p => {
+            return p.id === parseInt(this.props.match.params.noteID)
+        })
 
         return(
-            <div>
-                <h2>{noteItem.name}</h2>
+            <div className="note-items">
+                <h2>{noteItem.note_name}</h2>
                 <p>{noteItem.content}</p>
                 <Link to='/'>
                     <button>Go Back</button>

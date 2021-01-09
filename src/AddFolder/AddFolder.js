@@ -25,10 +25,10 @@ class AddFolder extends Component {
     handleSubmit = e => {
         e.preventDefault()
         const folder = {
-            name: e.target['folderNameInput'].value
+            folder_name: e.target['folderNameInput'].value
         }
 
-        fetch('http://localhost:9090/folders', {
+        fetch('http://localhost:8000/api/folders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -43,7 +43,7 @@ class AddFolder extends Component {
         })
         .then(folder => {
             this.context.addFolder(folder)
-            this.props.history.push(`/folder/${folder.id}`)
+            this.props.history.push(`/folders/${folder.id}`)
         })
         .catch(error => {
             console.error({error})

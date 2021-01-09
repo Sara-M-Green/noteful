@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:9090/folders', {
+    fetch('http://localhost:8000/api/folders', {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
@@ -38,7 +38,7 @@ class App extends Component {
     .then(folders => this.setState({folders: folders}))
     .catch(error => this.setState( {error}));
 
-    fetch('http://localhost:9090/notes', {
+    fetch('http://localhost:8000/api', {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
@@ -57,6 +57,12 @@ class App extends Component {
   handleDeleteNote = noteId => {
     this.setState({
       notes: this.state.notes.filter(note => note.id !== noteId)
+    })
+  }
+
+  handleDeleteFolder = folderId => {
+    this.setState({ 
+      folders: this.state.folders.filter(folder => folder.id !== folderId)
     })
   }
 
@@ -91,7 +97,8 @@ class App extends Component {
       addFolder: this.handleAddFolder,
       selectedNotes: this.state.notes,
       addNote: this.handleAddNote,
-      deleteNote: this.handleDeleteNote
+      deleteNote: this.handleDeleteNote,
+      deleteFolder: this.handleDeleteFolder,
     }
 
     return (
@@ -117,25 +124,27 @@ class App extends Component {
             </NotesError>
             <NotesError>
               <Route
-                path='/note/:noteID'
+                path='/notes/:noteID'
                 component={NotePage}
               />
             </NotesError>
             <NotesError>
               <Route
-                path='/folder/:folderID'
+                path='/folders/:folderID'
                 component={MainFolders}
               />
             </NotesError>
             <NotesError>
               <Route
-                path='/add-folder'
+                exact
+                path='/folders'
                 component={AddFolder}
               />
             </NotesError>
             <NotesError>
               <Route
-                path='/add-note'
+                exact
+                path='/notes'
                 component={AddNote}
               />
             </NotesError> 

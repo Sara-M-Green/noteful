@@ -22,9 +22,8 @@ class Note extends Component {
     handleDeleteNote = (e, noteId) => {
         e.preventDefault()
         
-        console.log(noteId)
 
-        fetch(`http://localhost:9090/notes/${noteId}`, {
+        fetch(`http://localhost:8000/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
             'content-type': 'application/json'
@@ -34,10 +33,7 @@ class Note extends Component {
             if (!res.ok) {
                 return res.json().then(e => Promise.reject(e))
             }
-            return res.json()
-        })
-        .then(() => {
-            this.context.deleteNote(noteId)            
+            this.context.deleteNote(noteId) 
         })
         .catch(error => {
             console.error({error})
@@ -49,11 +45,11 @@ class Note extends Component {
             return (
 
                     <li className="note-items" key={note.id} >
-                        <Link className="Link" to={`/note/${note.id}`}>
-                            <p className="noteTitle">{note.name}</p>
+                        <Link className="Link" to={`/notes/${note.id}`}>
+                            <p className="noteTitle">{note.note_name}</p>
                         </Link>
                         <p>Modified: {moment(note.modified).format("MMM Do YY")}</p>
-                        <button onClick={(e) => this.handleDeleteNote(e, note.id)}>delete</button>
+                        <button onClick={(e) => this.handleDeleteNote(e, note.id)}>Delete</button>
                     </li>
 
             ) 
