@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #E0FBFC;
+}
+
+
+#appTitle {
+  font-size: 60px;
+  color: #6B0504;
+}
+
+li {
+  list-style: none;
+}
+
+.App {
+  text-align: center;
+  margin-left: 25%;
+  font-family: 'Domine', serif;
+  background-color: #E0FBFC;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  border-bottom: 4px solid black;
+  background-color: #E0FBFC;
+}
+
+.Link {
+  text-decoration: none;
+  color: #6B0504;
+}
+
+.Link:hover {
+  text-decoration: underline;
+}
+
+

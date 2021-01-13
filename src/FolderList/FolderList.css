@@ -1,0 +1,10 @@
+* {
+    box-
+    : border-box;
+}
+
+.folderList {
+    display: flex;
+    align-items: left;
+    padding-left: 0;
+}

@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+  }
+
+.sidebar {
+    height: 100%;
+    width: 25%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding-top: 100px;
+    overflow-x: hidden;
+    border-right: 4px solid black;
+    background-color: #98C1D9;
+    
+}
+
+.folderList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

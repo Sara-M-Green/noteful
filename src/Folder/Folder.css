@@ -1,0 +1,14 @@
+.folderItems {
+    border: 2px solid black;
+    border-radius: 17px;
+    margin: 20px;
+    padding: 20px;
+    padding-bottom: 40px;
+    width: 250px;
+    max-height: 200px;
+    background: white;
+}
+
+.active {
+    border-bottom: 2px solid lightseagreen;
+}
