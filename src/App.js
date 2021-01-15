@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(config.API_ENDPOINT + '/folders', {
+    fetch(`${config.API_ENDPOINT}/folders`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json'

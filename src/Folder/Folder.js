@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import NotefulContext from '../NotefulContext';
 import './Folder.css';
 import config from '../config'

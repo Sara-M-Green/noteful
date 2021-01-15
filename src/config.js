@@ -1,3 +1,3 @@
 export default {
-    API_ENDPOINT: `https://intense-oasis-51151.herokuapp.com/api`
+    API_ENDPOINT: `https://shrouded-sea-64382.herokuapp.com/api`
 }
